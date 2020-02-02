@@ -14,10 +14,10 @@ const inventory = {
 
 const invokeInventoryAction = function(itemName, action) {
   console.log(`Invoking action on ${itemName}`);
-  action.bind(inventory)(itemName);
+  action(itemName);
 };
 
-invokeInventoryAction("Medkit", inventory.add);
+invokeInventoryAction("Medkit", inventory.add.bind(inventory));
 console.log(inventory.items);
-invokeInventoryAction("Gas mask", inventory.remove);
+invokeInventoryAction("Gas mask", inventory.remove.bind(inventory));
 console.log(inventory.items);
