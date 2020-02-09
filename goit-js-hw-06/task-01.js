@@ -17,15 +17,15 @@ const getUsersWithEyeColor = (users, color) => {
 
 console.log(getUsersWithEyeColor(users, "blue"));
 
-// //Task-03////////////////////
+//Task-03////////////////////
 const getUsersWithGender = (users, gender) => {
-  const arr = [];
-  users.forEach(elem => {
+  const result = [];
+  users.map(elem => {
     if (elem.gender === gender) {
-      arr.push(elem.name);
+      result.push(elem.name);
     }
   });
-  return arr;
+  return result;
 };
 
 console.log(getUsersWithGender(users, "male"));
@@ -59,13 +59,12 @@ const calculateTotalBalance = users => {
 console.log(calculateTotalBalance(users));
 // //Task-08//////////////////////
 const getUsersWithFriend = (users, friendName) => {
-  const arr = [];
-  users.forEach(elem => {
+  const newArr = users.map(elem => {
     if (elem.friends.includes(friendName)) {
-      arr.push(elem.name);
+      return elem.name;
     }
   });
-  return arr;
+  return newArr.filter(elem => elem !== undefined);
 };
 
 console.log(getUsersWithFriend(users, "Briana Decker"));
