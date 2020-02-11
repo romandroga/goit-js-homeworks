@@ -2,7 +2,6 @@
 import users from "./users.js";
 
 // // Task-01///////////////////////
-
 const getUserNames = users => {
   return users.map(elem => elem.name);
 };
@@ -11,7 +10,6 @@ console.log(getUserNames(users));
 // //Task-02/////////////////////////
 
 const getUsersWithEyeColor = (users, color) => {
-  // твой код
   return users.filter(elem => elem.eyeColor === color);
 };
 
@@ -19,31 +17,24 @@ console.log(getUsersWithEyeColor(users, "blue"));
 
 //Task-03////////////////////
 const getUsersWithGender = (users, gender) => {
-  const result = [];
-  users.map(elem => {
-    if (elem.gender === gender) {
-      result.push(elem.name);
-    }
-  });
-  return result;
+  return users.filter(elem => elem.gender === gender).map(elem => elem.name);
 };
 
 console.log(getUsersWithGender(users, "male"));
-
 // //Task-04/////////////////////
 const getInactiveUsers = users => {
   return users.filter(elem => !elem.isActive);
 };
 
 console.log(getInactiveUsers(users));
-// //Task-05//////////////////////
+// // //Task-05//////////////////////
 const getUserWithEmail = (users, email) => {
   return users.find(elem => elem.email === email);
 };
 
 console.log(getUserWithEmail(users, "shereeanthony@kog.com"));
 console.log(getUserWithEmail(users, "elmahead@omatom.com"));
-// //Task-06//////////////////////
+// // //Task-06//////////////////////
 const getUsersWithAge = (users, min, max) => {
   return users.filter(elem => elem.age >= min && elem.age <= max);
 };
@@ -51,30 +42,25 @@ const getUsersWithAge = (users, min, max) => {
 console.log(getUsersWithAge(users, 20, 30));
 
 console.log(getUsersWithAge(users, 30, 40));
-// //Task-07//////////////////////
+// // //Task-07//////////////////////
 const calculateTotalBalance = users => {
   return users.reduce((totalBalance, user) => totalBalance + user.balance, 0);
 };
 
 console.log(calculateTotalBalance(users));
-// //Task-08//////////////////////
+// // //Task-08//////////////////////
 const getUsersWithFriend = (users, friendName) => {
-  const newArr = users.map(elem => {
-    if (elem.friends.includes(friendName)) {
-      return elem.name;
-    }
-  });
-  return newArr.filter(elem => elem !== undefined);
+  return users
+    .filter(elem => elem.friends.includes(friendName))
+    .map(elem => elem.name);
 };
 
 console.log(getUsersWithFriend(users, "Briana Decker"));
 console.log(getUsersWithFriend(users, "Goldie Gentry"));
-//Task-09//////////////////////
+// //Task-09//////////////////////
 const getNamesSortedByFriendsCount = users => {
   return users
-    .sort((a, b) => {
-      a.friends.length - b.friends.length;
-    })
+    .sort((a, b) => a.friends.length - b.friends.length)
     .map(elem => elem.name);
 };
 
