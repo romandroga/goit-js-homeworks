@@ -20,7 +20,6 @@ const images = [
 
 const newGallery = document.querySelector("#gallery");
 newGallery.classList.add("container");
-console.log(newGallery);
 
 newGallery.insertAdjacentHTML(
   "beforeend",

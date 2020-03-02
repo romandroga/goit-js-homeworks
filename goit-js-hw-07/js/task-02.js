@@ -25,5 +25,3 @@ ingredientsList.append(
   createNewElement(ingredients[4]),
   createNewElement(ingredients[5])
 );
-
-console.log(ingredientsList);
