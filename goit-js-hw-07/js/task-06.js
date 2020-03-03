@@ -1,7 +1,7 @@
 "use strict";
 
 const inputForm = document.querySelector("#validation-input");
-inputForm.addEventListener("input", checkValidity);
+inputForm.addEventListener("blur", checkValidity);
 
 function checkValidity(e) {
   if (e.currentTarget.value.length === +inputForm.getAttribute("data-length")) {
