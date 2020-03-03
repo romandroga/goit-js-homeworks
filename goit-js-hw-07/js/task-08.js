@@ -7,13 +7,11 @@ const inputNumber = document.querySelector("input[type=number]");
 const renderButton = document.querySelector("button[data-action=render]");
 const destroyButton = document.querySelector("button[data-action=destroy]");
 
-inputNumber.addEventListener("click", () => {
+inputNumber.addEventListener("input", () => {
   totalCounter = +inputNumber.value;
 });
 
 renderButton.addEventListener("click", () => {
-  console.log(`Нужно создать ${totalCounter} дивов`);
-
   for (let i = 0; i < totalCounter; i += 1) {
     const elem = document.createElement("div");
     elem.style.backgroundColor = `rgb(${getRandNumber(255)},
@@ -27,6 +25,7 @@ renderButton.addEventListener("click", () => {
 
 destroyButton.addEventListener("click", () => {
   boxWrapper.innerHTML = "";
+  boxSize = 30;
 });
 
 function getRandNumber(max) {
