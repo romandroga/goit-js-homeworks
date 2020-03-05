@@ -18,12 +18,12 @@ const images = [
   }
 ];
 
-const newGallery = document.querySelector("#gallery");
-newGallery.classList.add("container");
+const galleryWrapper = document.querySelector("#gallery");
+galleryWrapper.classList.add("container");
 
-newGallery.insertAdjacentHTML(
-  "beforeend",
-  `<img src = ${images[0].url} alt = ${images[0].alt} class = 'gallery-item'>
-   <img src = ${images[1].url} alt = ${images[1].alt} class = 'gallery-item'>
-   <img src = ${images[2].url} alt = ${images[2].alt} class = 'gallery-item'>`
+const galleryItem = images.map(
+  ({ url, alt }) => `<img  class = "gallery-item" src='${url}' alt='${alt}'>`
 );
+
+console.log(galleryItem);
+galleryWrapper.insertAdjacentHTML(`afterbegin`, galleryItem);

@@ -11,17 +11,12 @@ const ingredients = [
 
 const ingredientsList = document.querySelector("#ingredients");
 
-function createNewElement(elem) {
-  const newElement = document.createElement("li");
-  newElement.textContent = elem;
-  return newElement;
-}
+createNewElements(ingredients);
 
-ingredientsList.append(
-  createNewElement(ingredients[0]),
-  createNewElement(ingredients[1]),
-  createNewElement(ingredients[2]),
-  createNewElement(ingredients[3]),
-  createNewElement(ingredients[4]),
-  createNewElement(ingredients[5])
-);
+function createNewElements(array) {
+  array.forEach(elem => {
+    const newElement = document.createElement("li");
+    newElement.textContent = elem;
+    ingredientsList.append(newElement);
+  });
+}

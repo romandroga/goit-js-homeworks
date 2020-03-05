@@ -9,7 +9,7 @@ function checkValidity(e) {
       this.classList.remove("invalid");
     }
     this.classList.add("valid");
-  } else {
-    inputForm.classList.add("invalid");
+    return;
   }
+  inputForm.classList.add("invalid");
 }
