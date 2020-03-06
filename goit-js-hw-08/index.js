@@ -11,14 +11,20 @@ let previous;
 let next;
 let parent;
 
-gallery.forEach(elem => {
-  const galleryItem = document.createElement("img");
-  galleryItem.classList.add("gallery__item", "gallery__image", "gallery__link");
-  galleryItem.src = elem.preview;
-  galleryItem.alt = elem.description;
-  galleryItem.dataset.source = elem.original;
-  galleryWrapper.append(galleryItem);
-});
+function createNewElements(array) {
+  const arr = [];
+  array.forEach(elem => {
+    const galleryItem = document.createElement("img");
+    galleryItem.classList.add("gallery__item", "gallery__image", "gallery__link");
+    galleryItem.src = elem.preview;
+    galleryItem.alt = elem.description;
+    galleryItem.dataset.source = elem.original;
+    arr.push(galleryItem);
+  });
+  galleryWrapper.append(...arr);
+}
+
+createNewElements(gallery);
 
 galleryWrapper.addEventListener("click", event => {
   event.target.src = event.target.dataset.source;
