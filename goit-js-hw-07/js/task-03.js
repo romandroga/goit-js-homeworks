@@ -21,9 +21,8 @@ const images = [
 const galleryWrapper = document.querySelector("#gallery");
 galleryWrapper.classList.add("container");
 
-const galleryItem = images.map(
-  ({ url, alt }) => `<img  class = "gallery-item" src='${url}' alt='${alt}'>`
-);
+const galleryItem = images.reduce((accum, elem) => {
+  return accum + `<img  class = "gallery-item" src='${elem.url}' alt='${elem.alt}'>`;
+}, '');
 
-console.log(galleryItem);
 galleryWrapper.insertAdjacentHTML(`afterbegin`, galleryItem);
