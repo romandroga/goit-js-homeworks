@@ -27,7 +27,6 @@ refs.startButton.addEventListener("click", () => {
 
 refs.stopButton.addEventListener("click", () => {
   clearInterval(timer);
-  refs.body.style.backgroundColor = "";
   refs.startButton.disabled = false;
 });
 
