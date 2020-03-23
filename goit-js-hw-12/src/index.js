@@ -33,7 +33,9 @@ function createMarkdown(data) {
     createCountryList(data);
     return;
   }
-  createCountryCard(...data);
+  if (data.length === 1) {
+    createCountryCard(...data);
+  }
 }
 
 function createCountryList(data) {
