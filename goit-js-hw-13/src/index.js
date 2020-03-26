@@ -19,7 +19,7 @@ const infScroll = new InfiniteScroll(refs.gallery, {
   responseType: 'text',
   history: false,
   path() {
-    return `${refs.baseUrl}${searchQuerry}&page=${this.pageIndex}&per_page=12&key=${refs.key}`;
+    return `${refs.proxy}${refs.baseUrl}${searchQuerry}&page=${this.pageIndex}&per_page=12&key=${refs.key}`;
   },
 });
 
